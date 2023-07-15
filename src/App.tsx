@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {useState} from 'react';
 import './App.css';
+import { Header } from './components/Header/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { MainPage } from './pages/Main/Main.page';
+import { ProductPage } from './pages/Product/Product.page';
+import { IProduct } from './interfaces/Product';
+import { FavoriteItems } from './contexts/FavoriteItems';
+import { StoreItems } from './contexts/StoreItems';
+import { BasketItems } from './contexts/BasketItems';
 
 function App() {
+  let [favoriteItems, setFavoriteItems] = useState<IProduct[]>([]);
+  let [storeItems, setStoreItems] = useState<IProduct[]>([]);
+  let [basketItems, setBasketItems] = useState<IProduct[]>([]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <FavoriteItems.Provider value={{ favoriteItems, setFavoriteItems }}>
+      <StoreItems.Provider value={{ storeItems, setStoreItems }}>
+        <BasketItems.Provider value={{ basketItems, setBasketItems }}>
+          <div className="App">
+            <BrowserRouter>
+              <Header />
+              <Routes>
+                <Route path='/products/:id' element={<ProductPage />} />
+                <Route path='*' element={<MainPage />} />
+              </Routes>
+            </BrowserRouter>
+          </div>
+        </BasketItems.Provider>
+      </StoreItems.Provider>
+    </FavoriteItems.Provider>
   );
 }
 

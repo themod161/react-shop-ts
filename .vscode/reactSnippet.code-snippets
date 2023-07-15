@@ -1,0 +1,12 @@
+{
+	"Create react element": {
+		"scope": "javascript,typescript",
+		"prefix": "rc",
+		"body": [
+			"export function $1() {",
+			"\treturn $0;",
+			"}"
+		],
+		"description": "Create react element"
+	}
+}

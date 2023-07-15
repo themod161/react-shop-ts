@@ -1,0 +1,7 @@
+.basket-list-empty {
+    width: 350px;
+    display: flex;
+    height: 200px;
+    justify-content: center;
+    align-items: center;
+}

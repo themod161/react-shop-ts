@@ -1,0 +1,19 @@
+.favorite-item-logo img {
+    max-width: 48px;
+}
+.favorite-item-description {
+    color: #232323;
+}
+.favorite-item-inner {
+    display: flex;
+    width: 350px;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #f3f3f3;
+    text-align: center;
+    padding: 10px;
+}
+.favorite-item-description p {
+    margin: 0;
+    padding: 0;
+}

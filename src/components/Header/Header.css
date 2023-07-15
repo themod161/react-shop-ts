@@ -1,0 +1,28 @@
+.header-inner {
+    display: flex;
+    background: #221f1f;
+    min-height: 72px;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .5s ease;
+}
+.header-left-logo img {
+    max-width: 64px;
+    border-radius: 5px;
+}
+.header-left-side {
+    margin-left: 25px;
+}
+.header-right-side {
+    margin-right: 25px;
+}
+
+.header-inner.sticky {
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    top: 0;
+}
+.header-right-user-inner {
+    display: flex;
+}
